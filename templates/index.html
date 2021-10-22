@@ -1,0 +1,28 @@
+<!doctype html>
+<script>
+    function send_prog(){
+        var text = document.getElementsByName('text')[0].value;
+        var resp;
+        fetch("/dig", {method: "POST", body: JSON.stringify(text)})
+        .then(response => response.json())
+        .then(data => document.getElementsByName('resp')[0].value = "***" + data + "***");
+        
+        
+    };
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>
+        <textarea name="text" cols="40" rows="5"></textarea>
+    </div>
+    <div>
+        <button onclick="send_prog()">Submit</button>
+    </div>
+    <div>
+        <textarea name="resp" cols="40" rows="5"></textarea>
+    </div>
+</body>
+</html>
