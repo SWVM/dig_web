@@ -9,15 +9,11 @@
     function retrive_result(){
         var id = document.getElementsByName('id')[0].value;
 
-        for( var resp = "No result yet...";
-             resp == "No result yet...";
-            ){
-            console.log(resp =="No result yet...")
-            console.log(resp)
+        while(document.getElementsByName('result')[0].value.includes("No result yet...")){
             fetch("/dig/"+id, {method: "GET"})
             .then(response => response.json())
-            .then(data => resp = JSON.stringify(data));
-            document.getElementsByName('result')[0].value = resp;
+            .then(data => document.getElementsByName('result')[0].value = data);
+
             var start = (new Date()).getTime();
             while((new Date()).getTime() - start < 5000) {
             continue;

@@ -17,6 +17,7 @@ from flask import Flask, redirect, url_for, request, render_template
 from flask.helpers import make_response, send_from_directory
 import json
 
+from datetime import datetime
 from time import sleep
 from threading  import Thread
 from queue import Queue
@@ -95,10 +96,11 @@ def dig_main():
 @app.route('/dig/<id>')
 def get_res(id):
    task = dig.get(id)
+   current_time = datetime.now().strftime("%H:%M:%S")
    result = "No result yet..."
    if task:
       result = task.retrive_result()
-   return json.dumps(result)
+   return json.dumps( "[{}] {}".format(current_time, result) )
 
 
 if __name__ == '__main__':
