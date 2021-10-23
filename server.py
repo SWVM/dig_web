@@ -1,6 +1,6 @@
 ###########################
 TEMP_IN = "/dig_web-master/temp/trace/{}.csv"
-TEMP_OUT= "/dig_web-master/temp/trace/{}.txt"
+TEMP_OUT= "/dig_web-master/temp/out/{}.txt"
 PYTHON  = "/root/miniconda/bin/python"
 PYTHON_FLAG = "-O"
 DIG     = "/dig/src/dig.py"
@@ -83,7 +83,7 @@ def dig_main():
       str_in = request.data.decode("utf-8")
       task   = Trace(id, str_in)
 
-      dig.put(task)
+      dig.add(task)
 
       return json.dumps(str(uuid4()))
 
