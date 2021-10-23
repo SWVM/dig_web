@@ -26,7 +26,7 @@ class Trace():
    def __init__(self, id, input):
       self.id = id
       self.done = False
-      self.input_gen()
+      self.input_gen(input)
    def get_input_fp(self):
       return TEMP_IN.format(self.id)
    def get_output_fp(self):
