@@ -84,7 +84,7 @@ def dig_main():
       return render_template("index.html")
    elif request.method == "POST":
       id     = str(uuid4())
-      str_in = json.load(request.data.decode("utf-8"))
+      str_in = json.loads(request.data)
       task   = Trace(id, str_in)
 
       dig.add(task)
