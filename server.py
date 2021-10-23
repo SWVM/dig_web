@@ -94,8 +94,8 @@ def dig_main():
 
 @app.route('/dig/<id>')
 def get_res(id):
-   print(dig.result_hash)
-   return id
+   task = dig.get(id)
+   return task.retrive_result()
 
 
 if __name__ == '__main__':
