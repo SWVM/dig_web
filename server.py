@@ -2,6 +2,7 @@ import re
 from uuid import uuid4
 from flask import Flask, redirect, url_for, request, render_template
 from flask.helpers import make_response, send_from_directory
+import json
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ def dig_main():
       f.write(request.data.decode("utf-8"))
       f.close()
 
-      return str(uuid4())
+      return json.dump(str(uuid4()))
 
 
 if __name__ == '__main__':
