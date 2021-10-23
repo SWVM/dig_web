@@ -15,7 +15,7 @@ def dig_main():
       f.write(request.data.decode("utf-8"))
       f.close()
 
-      return uuid4()
+      return str(uuid4())
 
 
 if __name__ == '__main__':
