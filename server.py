@@ -97,10 +97,10 @@ def dig_main():
 def get_res(id):
    task = dig.get(id)
    current_time = datetime.now().strftime("%H:%M:%S")
-   result = "No result yet..."
+   result = "[{}] {}".format(current_time, "No result yet...")
    if task:
       result = task.retrive_result()
-   return json.dumps( "[{}] {}".format(current_time, result) )
+   return json.dumps( result )
 
 
 if __name__ == '__main__':
