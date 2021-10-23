@@ -16,7 +16,7 @@ def dig_main():
       f.write(request.data.decode("utf-8"))
       f.close()
 
-      return json.dump(str(uuid4()))
+      return json.dumps(str(uuid4()))
 
 
 if __name__ == '__main__':
