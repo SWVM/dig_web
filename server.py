@@ -43,8 +43,11 @@ class Trace():
          f.close()
       return result
    def run(self):
-      command = [PYTHON, PYTHON_FLAG, DIG, self.get_input_fp(), DIG_FLAG, DIG_NUM, ">", self.get_output_fp()]
-      subprocess.run( command )
+      command = [PYTHON, PYTHON_FLAG, DIG, self.get_input_fp(), DIG_FLAG, DIG_NUM]
+      output  = subprocess.run( command , capture_output=True).stdout.decode("utf-8")
+      f = open( self.get_output_fp() , "w+")
+      f.write(output)
+      f.close()
       self.done = True 
       print("Done..."+self.id)
 
