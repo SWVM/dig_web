@@ -1,13 +1,15 @@
 <!doctype html>
 <script>
-
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
     function send_prog(){
         var text = document.getElementsByName('text')[0].value;
         fetch("/dig", {method: "POST", body: JSON.stringify(text)})
         .then(response => response.json())
         .then(data => document.getElementsByName('id')[0].value = data);
     };
-    function retrive_result(){
+    async function retrive_result(){
         var id = document.getElementsByName('id')[0].value;
         var no_res = "No result yet...";
         var resp = no_res
@@ -16,12 +18,12 @@
             .then(response => response.json())
             .then(data => resp = data);
             document.getElementsByName('result')[0].value = resp
-            await new Promise(r => setTimeout(r, 2000));
+            await sleep(2000);
             
         }
         
 
-    }
+    };
 </script>
 <head>
     <meta charset="UTF-8">
