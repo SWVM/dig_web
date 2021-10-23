@@ -11,14 +11,14 @@
     };
     async function retrive_result(){
         var id = document.getElementsByName('id')[0].value;
-        let resp = "No result yet..."
-        while(resp == "No result yet..."){
+        for( let resp = "No result yet...";
+             resp == "No result yet...";
+            ){
             fetch("/dig/"+id, {method: "GET"})
             .then(response => response.json())
             .then(data => resp = JSON.stringify(data));
             document.getElementsByName('result')[0].value = resp;
             await sleep(2000);
-            
         }
         
 
