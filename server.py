@@ -68,7 +68,7 @@ class Runner():
    def get(self, id):
       return self.result_hash.get(id)
 
-dig = T()
+dig = Runner()
 
 
 app = Flask(__name__)
