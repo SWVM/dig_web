@@ -11,8 +11,9 @@ def instructor_join():
       return render_template("index.html")
    elif request.method == "POST":
       f = open("./temp/trace.csv", "w+")
-      f.write(request.data)
+      f.write(request.data.decode("utf-8"))
       f.close()
+      
       return request.data
 
 
