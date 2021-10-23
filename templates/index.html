@@ -1,14 +1,27 @@
 <!doctype html>
 <script>
+
     function send_prog(){
         var text = document.getElementsByName('text')[0].value;
-        var resp;
         fetch("/dig", {method: "POST", body: JSON.stringify(text)})
         .then(response => response.json())
-        .then(data => document.getElementsByName('resp')[0].value = "***" + data + "***");
-        
-        
+        .then(data => document.getElementsByName('id')[0].value = data);
     };
+    function retrive_result(){
+        var id = document.getElementsByName('id')[0].value;
+        var no_res = "No result yet...";
+        var resp = no_res
+        while(resp == no_res){
+            fetch("/dig/"+id, {method: "GET"})
+            .then(response => response.json())
+            .then(data => resp = data);
+            document.getElementsByName('result')[0].value = resp
+            await new Promise(r => setTimeout(r, 2000));
+            
+        }
+        
+
+    }
 </script>
 <head>
     <meta charset="UTF-8">
@@ -22,7 +35,11 @@
         <button onclick="send_prog()">Submit</button>
     </div>
     <div>
-        <textarea name="resp" cols="40" rows="5"></textarea>
+        <textarea name="id" cols="40" rows="5"></textarea>
+    </div>
+
+    <div>
+        <textarea name="result" cols="40" rows="5"></textarea>
     </div>
 </body>
 </html>

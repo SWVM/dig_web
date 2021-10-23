@@ -95,7 +95,10 @@ def dig_main():
 @app.route('/dig/<id>')
 def get_res(id):
    task = dig.get(id)
-   return task.retrive_result()
+   result = "No result yet..."
+   if task:
+      result = task.retrive_result()
+   return result
 
 
 if __name__ == '__main__':
