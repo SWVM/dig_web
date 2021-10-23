@@ -11,7 +11,7 @@
     };
     async function retrive_result(){
         var id = document.getElementsByName('id')[0].value;
-        var resp = "No result yet..."
+        let resp = "No result yet..."
         while(resp == "No result yet..."){
             fetch("/dig/"+id, {method: "GET"})
             .then(response => response.json())
