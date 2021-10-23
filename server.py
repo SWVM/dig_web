@@ -94,7 +94,7 @@ def dig_main():
 
 @app.route('/dig/<id>')
 def get_res(id):
-   return type(id)
+   return str(type(id))
 
 
 if __name__ == '__main__':
