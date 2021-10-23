@@ -14,6 +14,8 @@
         for( var resp = "No result yet...";
              resp == "No result yet...";
             ){
+            console.log(resp =="No result yet...")
+            console.log(resp)
             fetch("/dig/"+id, {method: "GET"})
             .then(response => response.json())
             .then(data => resp = JSON.stringify(data));
