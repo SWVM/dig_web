@@ -17,7 +17,7 @@
             fetch("/dig/"+id, {method: "GET"})
             .then(response => response.json())
             .then(data => resp = JSON.stringify(data));
-            document.getElementsByName('result')[0].value = resp
+            document.getElementsByName('result')[0].value = resp;
             await sleep(2000);
             
         }

@@ -98,7 +98,7 @@ def get_res(id):
    result = "No result yet..."
    if task:
       result = task.retrive_result()
-   return result
+   return json.dumps(result)
 
 
 if __name__ == '__main__':
