@@ -49,6 +49,7 @@ class Trace():
       f.write(output)
       f.close()
       self.done = True 
+      print(output)
       print("Done..."+self.id)
 
 class Runner():
@@ -93,6 +94,7 @@ def dig_main():
 
 @app.route('/dig/<id>')
 def get_res(id):
+   print(type(id))
    task = dig.get(id)
    return task.retrive_result()
 
