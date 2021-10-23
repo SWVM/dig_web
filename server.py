@@ -79,7 +79,7 @@ def dig_main():
       # return the form
       return render_template("index.html")
    elif request.method == "POST":
-      id     = str(uuid4)
+      id     = str(uuid4())
       str_in = request.data.decode("utf-8")
       task   = Trace(id, str_in)
 
