@@ -43,10 +43,10 @@ class Trace():
          f.close()
       return result
    def run(self):
-      command = [PYTHON, PYTHON_FLAG, DIG, task.get_input_fp(), DIG_FLAG, ">", task.get_output_fp()]
+      command = [PYTHON, PYTHON_FLAG, DIG, self.get_input_fp(), DIG_FLAG, ">", self.get_output_fp()]
       subprocess.run( command )
       self.done = True 
-      print("Done..."+task.id)
+      print("Done..."+self.id)
 
 class Runner():
    def __init__(self):
