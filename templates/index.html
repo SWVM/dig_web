@@ -1,16 +1,14 @@
 <!doctype html>
 <script>
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
     function send_prog(){
         var text = document.getElementsByName('text')[0].value;
         fetch("/dig", {method: "POST", body: JSON.stringify(text)})
         .then(response => response.json())
         .then(data => document.getElementsByName('id')[0].value = data);
     };
-    async function retrive_result(){
+    function retrive_result(){
         var id = document.getElementsByName('id')[0].value;
+
         for( var resp = "No result yet...";
              resp == "No result yet...";
             ){
@@ -20,8 +18,10 @@
             .then(response => response.json())
             .then(data => resp = JSON.stringify(data));
             document.getElementsByName('result')[0].value = resp;
-            console.log(resp =="No result yet...")
-            console.log(resp)
+            var start = (new Date()).getTime();
+            while((new Date()).getTime() - start < 5000) {
+            continue;
+        }
         };
 
     };
