@@ -1,7 +1,7 @@
 ###########################
 TEMP_IN = "/dig_web-master/temp/trace/{}.csv"
 TEMP_OUT= "/dig_web-master/temp/out/{}.txt"
-PYTHON  = "/root/miniconda/bin/python"
+PYTHON  = "/root/miniconda3/bin/python"
 PYTHON_FLAG = "-O"
 DIG     = "/dig/src/dig.py"
 DIG_FLAG= "-log"
