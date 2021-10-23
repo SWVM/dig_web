@@ -89,7 +89,7 @@ def dig_main():
 
       dig.add(task)
 
-      return json.dumps(str(uuid4()))
+      return json.dumps(id)
 
 
 @app.route('/dig/<id>')
