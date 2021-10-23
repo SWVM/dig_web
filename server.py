@@ -10,7 +10,9 @@ def instructor_join():
       # return the form
       return render_template("index.html")
    elif request.method == "POST":
-      print(request.data)
+      f = open("./temp/trace.csv", "w+")
+      f.write(request.data)
+      f.close()
       return request.data
 
 
