@@ -5,12 +5,12 @@ from flask.helpers import make_response, send_from_directory
 app = Flask(__name__)
 
 @app.route('/dig', methods = ['POST', 'GET'])
-def instructor_join():
+def dig_main():
    if request.method == "GET":
       # return the form
       return render_template("index.html")
    elif request.method == "POST":
-      f = open("./temp/trace.csv", "w+")
+      f = open("/dig_web-master/temp/trace.csv", "w+")
       f.write(request.data.decode("utf-8"))
       f.close()
       
