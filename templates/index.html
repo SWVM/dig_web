@@ -11,7 +11,7 @@
     };
     async function retrive_result(){
         var id = document.getElementsByName('id')[0].value;
-        for( let resp = "No result yet...";
+        for( var resp = "No result yet...";
              resp == "No result yet...";
             ){
             fetch("/dig/"+id, {method: "GET"})
