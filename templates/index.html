@@ -6,12 +6,20 @@
         .then(response => response.json())
         .then(data => document.getElementsByName('id')[0].value = data);
     };
-    function retrive_result(){
+    function update_result(){
         var id = document.getElementsByName('id')[0].value;
-        fetch("/dig/"+id, {method: "GET"})
+        fetch("/dig/id"+id, {method: "GET"})
         .then(response => response.json())
         .then(data => document.getElementsByName('result')[0].value = data);
+        setTimeout(update_result, 5000);
     };
+    // function retrive_result(){
+    //     var id = document.getElementsByName('id')[0].value;
+    //     fetch("/dig/"+id, {method: "GET"})
+    //     .then(response => response.json())
+    //     .then(data => document.getElementsByName('result')[0].value = data);
+    // };
+    setTimeout(update_result, 5000);
 </script>
 <head>
     <meta charset="UTF-8">
@@ -25,13 +33,10 @@
         <button onclick="send_prog()">Submit trace</button>
     </div>
     <div>
-        <textarea name="id" cols="40" rows="5"></textarea>
+        <textarea name="id" cols="40" rows="5" readonly></textarea>
     </div>
     <div>
-        <button onclick="retrive_result()">Get invariant</button>
-    </div>
-    <div>
-        <textarea name="result" cols="40" rows="5"></textarea>
+        <textarea name="result" cols="40" rows="5" readonly></textarea>
     </div>
 </body>
 </html>

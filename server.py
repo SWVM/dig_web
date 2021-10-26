@@ -95,7 +95,7 @@ def dig_main():
 
 @app.route('/dig/<id>')
 def get_res(id):
-   task = dig.get(id)
+   task = dig.get(id[2:])
    current_time = datetime.now().strftime("%H:%M:%S")
    result = "[{}] {}".format(current_time, "No result yet... Come back later...")
    if task:
